@@ -51,8 +51,6 @@ psutil==5.9.8
 pycparser==2.21
 Pygments==2.17.2
 python-dateutil==2.8.2
-python-dotenv==0.20.3
-pytz==2024.1
 PyYAML==6.0.1
 pyzmq==25.1.2
 requests==2.31.0
@@ -75,3 +73,4 @@ websocket-client==1.7.0
 wheel==0.42.0
 Flask==2.1.5
 Werkzeug==2.1.5
+python-dotenv
