@@ -1,4 +1,5 @@
 import json
+import os
 import requests
 from flask import Flask, render_template, request
 
@@ -8,9 +9,16 @@ app = Flask(__name__)
 with open('updated_movie_list.json', 'r') as f:
     movie_data = json.load(f)
 
-# Load preprocessed similarity matrix
-with open('reduced_similarity.json', 'r') as f:
-    similarity_data = json.load(f)
+# Load preprocessed similarity matrix with error handling
+try:
+    with open('reduced_similarity.json', 'r') as f:
+        similarity_data = json.load(f)
+except FileNotFoundError:
+    print("Error: reduced_similarity.json file not found.")
+    similarity_data = []
+except json.JSONDecodeError:
+    print("Error: Unable to parse reduced_similarity.json file.")
+    similarity_data = []
 
 # Set the threshold value
 threshold = 0.5
